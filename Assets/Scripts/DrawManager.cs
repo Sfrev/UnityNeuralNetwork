@@ -22,6 +22,21 @@ public class DrawManager : MonoBehaviour
     {
         //MouseDraw();
         TouchDraw();
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            EraseAll();
+        }
+    }
+
+    private static void EraseAll()
+    {
+        TrailRenderer[] trailRendererArray = FindObjectsOfType<TrailRenderer>();
+
+        foreach (TrailRenderer trailRenderer in trailRendererArray)
+        {
+            Destroy(trailRenderer.gameObject);
+        }
     }
 
     private void TouchDraw()
