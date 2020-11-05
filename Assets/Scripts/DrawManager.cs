@@ -6,11 +6,9 @@ using UnityEngine;
 public class DrawManager : MonoBehaviour
 {
     [SerializeField] private GameObject brush = null;
-    //[SerializeField] private float brushSize = 0.1f;
 
     private GameObject trail;
     private Plane plane;
-    //private GameObject ink = null;
     private Vector3 startPosition = default;
 
     void Start()
@@ -20,7 +18,6 @@ public class DrawManager : MonoBehaviour
 
     void Update()
     {
-        //MouseDraw();
         TouchDraw();
 
         if (Input.GetMouseButtonDown(1))
@@ -63,22 +60,4 @@ public class DrawManager : MonoBehaviour
             }
         }
     }
-    /*
-    private void MouseDraw()
-    {
-        if (Input.GetMouseButton(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-            {
-                ink = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.identity, transform);
-                ink.transform.localScale = Vector3.one * brushSize;
-            }
-        }
-        if (Input.GetMouseButtonUp(0) && ink)
-        {
-            Destroy(ink);
-        }
-    }*/
 }
